@@ -10,7 +10,6 @@ class Cliente(models.Model):
     name=models.CharField(max_length=40)
     lastname=models.CharField(max_length=50)
     dni=models.IntegerField()
-    ncliente:models.IntegerField()
     fechaAlta=models.DateField()
     email=models.EmailField()
 

@@ -1,0 +1,26 @@
+{% extends "AppFinal/padre.html" %}
+        {% load static %}
+{% block contenidoQueCambia %}
+<div class="container position-relative">
+    <div class="row justify-content-center">
+        <div class="col-xl-6">
+            <p> Estamos buscando el cliente DNI: {{dni}} </p> 
+            {% if clientes %}
+
+            <ul>
+                {% for cliente in clientes %}
+                <li> {{cliente.name}}</li>
+                <li> {{cliente.lastname}}</li>
+                <li> {{cliente.dni}}</li>
+                <li> {{cliente.fechaAlta}}</li>
+                <li> {{cliente.email}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}  
+
+        </div>
+    </div>
+</div> 
+
+
+{% endblock %}
