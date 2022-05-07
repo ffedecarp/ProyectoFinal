@@ -1,0 +1,25 @@
+{% extends "AppFinal/padre.html" %}
+        {% load static %}
+{% block contenidoQueCambia %}
+
+<!-- Product section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{%static 'AppFinal/assets/img/fibra.jpg'%}" alt="..." /></div>
+            <div class="col-md-6">
+                <div class="small mb-1">Coder internet</div>
+                <h1 class="display-5 fw-bolder">Fibra en tu Hogar</h1>
+                <p><span>Velocidad a otro nivel</span></p>
+                <p class="lead">Coder Fibra directa al hogar se basa en la utilización de cables de fibra óptica y sistemas ópticos adaptados a esta tecnología para la distribución de servicios de internet con mayor capacidad de transmisión de información y una altísima estabilidad a condiciones extremas tales como el calor, la humedad o ruido eléctrico.</p>
+                <p>Este cable transmite a través de una delgada hebra de vidrio o silicio fundido que conduce la luz, mejorando no sólo la velocidad, sino la calidad de la conexión: un cable de fibra óptica equivale a 110 hilos de cobre.</p>
+                <p>Con Coder Fibra la velocidad real es 100% igual a la contratada.</p>
+                <p>
+                    <a class="btn btn-primary" href="{% url 'nuevocliente' %}">Ver disponibilidad</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

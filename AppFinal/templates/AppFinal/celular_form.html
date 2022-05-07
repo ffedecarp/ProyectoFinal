@@ -1,0 +1,19 @@
+{% extends "AppFinal/padre.html" %}
+        {% load static %}
+{% block contenidoQueCambia %}
+<center> 
+    <img class="container position-relative " src="{%static 'AppFinal/assets/img/este.jpg'%}" alt="...">
+</center>  
+<div class="container position-relative">
+    <div class="row justify-content-center">
+        <div class="col-xl-6">
+            <form>
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="enviar">
+            </form>
+        </div>
+    </div>
+</div>                         
+
+{% endblock %}

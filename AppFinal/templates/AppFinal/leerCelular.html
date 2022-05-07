@@ -1,0 +1,22 @@
+{% extends "AppFinal/padre.html" %}
+        {% load static %}
+{% block contenidoQueCambia %}
+<div class="container position-relative">
+    <div class="row justify-content-center ">
+        <div class="col-xl-6">
+            <div><b> Cambia tu celu con nuestros precios exclusivos ONLINE </b></div>
+            <h1> Hasta 12 cuotas sin interes </h1>
+            <ul>
+                {% for ce in celulares %}
+
+                    <li> {{ce}}</li>
+                    
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div> 
+
+
+
+{% endblock %}

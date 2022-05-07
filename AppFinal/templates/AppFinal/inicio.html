@@ -13,18 +13,19 @@
                         <!-- Email address input-->
                         <div class="row">
                             <div class="col">
-                                
                                 <h1 class="mb-4" > Tenemos los planes ideales para vos </h1>
-                                <!--<input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                                <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-                                <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>-->
                                 <h1 class="mb-4"> Unite a nuestra compañia </h1>
-                                <a href="{% url 'nuevocliente'%}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">UNITE AHORA</a>      
+                                <!--a href="{% url 'nuevocliente'%}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">UNITE AHORA a>-->
+                                <!--button href="{% url 'nuevocliente'%}" >UNITE AHORA</button-->    
+                                <center>
+                                <a class="fancy" href="{% url 'nuevocliente'%}">
+                                    <span class="top-key"></span>
+                                    <span class="text">UNITE AHORA!</span>
+                                    <span class="bottom-key-1"></span>
+                                    <span class="bottom-key-2"></span>
+                                </a>  </center>
                             </div>
                         </div>   
-                        <!-- Submit success message-->
-                        <!-- This is what your users will see when the form-->
-                        <!-- has successfully submitted-->
                         <div class="d-none" id="submitSuccessMessage">
                             <div class="text-center mb-3">
                                 <div class="fw-bolder">Form submission successful!</div>
@@ -32,10 +33,6 @@
                                 <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                             </div>
                         </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
                         <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     </form>
                 </div>
@@ -44,8 +41,6 @@
     </div>
 </header>
     <!-- Icons Grid-->
-        
-    
         <!-- Image Showcases-->
         <section class="showcase">
             <div class="container-fluid p-0">
@@ -72,32 +67,5 @@
                 </div>
             </div>
         </section>
-        <!-- Testimonials-->
-        <section class="testimonials text-center bg-light">
-            <div class="container">
-                <h2 class="mb-5">Creadores del Proyecto</h2>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="{%static 'AppFinal/assets/img/lafati.jpg'%}" alt="..." />
-                            <h5>Fatima M.</h5>
-                            <p class="font-weight-light mb-0">"Una crack"</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="{%static 'AppFinal/assets/img/elfede.jpg'%}" alt="..." />
-                            <h5>Federico M.</h5>
-                            <p class="font-weight-light mb-0">"Bonachon"</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="{%static 'AppFinal/assets/img/elagu2.jpg'%}" alt="..." />
-                            <h5>Agustin B.</h5>
-                            <p class="font-weight-light mb-0">"Tipazo"</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
 {% endblock %}

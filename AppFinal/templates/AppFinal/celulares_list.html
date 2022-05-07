@@ -1,0 +1,35 @@
+{% extends "AppFinal/padre.html" %}
+        {% load static %}
+{% block contenidoQueCambia %}
+<center> 
+    <img class="container position-relative " src="{%static 'AppFinal/assets/img/este.jpg'%}" alt="...">
+</center>  
+<div class="container position-relative">
+    <div class="row justify-content-center">
+        <div class="col-xl-6">
+    
+            <h1> Deposito casa central </h1>
+            <div><b> LISTA DE EQUIPOS </b></div>
+            <p> </p>
+                        
+            <ul>
+                {% for celular in object_list %}
+                <li>
+                    <p> Celular:{{celular.marca}}   -   {{celular.modelo}}   -    {{celular.precio}}</p>
+                    <p>
+                        <a href="{% url 'Detailc' celular.id %}"> Ver </a> 
+
+                        <a href="{% url 'Editc' celular.id %}"> Editar </a>
+                        
+                        <a href="{% url 'Deletec' celular.id %}"> Borrar </a>
+
+                    </p>
+                </li>
+                {% endfor %}
+            </ul>        
+        </div>
+    </div>
+    <a href={% url "tuCelu" %} class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">Agregar nuevo equipo</a>
+</div>                         
+
+{% endblock %}

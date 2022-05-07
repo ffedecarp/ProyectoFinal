@@ -1,0 +1,31 @@
+{% extends "AppFinal/padre.html" %}
+        {% load static %}
+{% block contenidoQueCambia %}
+<center> 
+    <img class="container position-relative " src="{%static 'AppFinal/assets/img/este.jpg'%}" alt="...">
+</center>  
+<div class="container position-relative">
+    <div class="row justify-content-center">
+        <div class="col-xl-6">
+    
+            <h1> Clientes de CellCoder </h1>
+            <ul>
+                {% for cliente in object_list %}
+                <li>
+                    <p> Nombre:{{cliente.name}}</p>
+                    <p>
+                        <a href="{% url 'detail' cliente.id %}">Ver</a> 
+
+                        <a href="{% url 'Edit' cliente.id %}">Editar</a>
+                        
+                        <a href="{% url 'Delete' cliente.id %}">Borrar</a>
+
+                    </p>
+                </li>
+                {% endfor %}
+            </ul>        
+        </div>
+    </div>
+</div>                         
+
+{% endblock %}

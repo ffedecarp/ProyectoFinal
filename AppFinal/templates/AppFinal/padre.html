@@ -22,68 +22,86 @@
             <div class="container position-relative">
               <a class="navbar-brand" href="{% url 'inicio'%}">CellCoder</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'tuCelu'%}">Celular</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'cliente'%}">Cliente</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Servicios
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="{% url 'newLinea'%}">Linea</a></li>
-                      <li><a class="dropdown-item" href="#">Planes</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Tienda</a></li>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="{% url 'leerCelular'%}">Tienda</a>
+                        </li>
+                        <li class="nav-item">
+                              <a class="nav-link" href="{% url 'descuentos'%}">Descuentos</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'internet' %}">Internet</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'planes'%}">Planes</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{% url 'nuevocliente' %}"> Alta de cliente </a></li>
+                              </ul>
+                        </li>
                     </ul>
-                  </li>
-                  <li class="nav-item">
-                    <!--<a class="nav-link disabled">Disabled</a>-->
-                  </li>
-                </ul>
-                <form class="d-flex" action="/AppFinal/buscar/" method="GET">>
-                  <input class="form-control me-2" type="number" name="numero" id="numero">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                    <p> Estamos buscando la linea: {{numero}} </p>
-                    {% if lineas %}
-
-                    <ul>
-                        {% for linea in lineas %}
-                        <li> {{linea.numero}}</li>
-                        <li> {{linea.minutos}}</li>
-                        <li> {{linea.datosmb}}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-              </div>
+                          <form class="d-flex" action="/AppFinal/buscar/" method="GET">
+                                    <input class="form-control me-2" placeholder="Buscar linea" type="search" name="numero" id="numero">
+                                    <!--a href="{% url 'buscar'%}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Buscar</a-->
+                                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                          </form>
+                          {% if request.user.is_authenticated %}
+                                    <h3 class="text-muted small mb-2 mb-lg-0">User:{{user.username}}</h3>
+                                    <img style="height: 40px; width: 45px" src="{{url}}">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Panel de Control
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <li><a class="dropdown-item" href="{% url 'newLinea'%}">Cargar Linea</a></li>
+                                                <li><a class="dropdown-item" href="{% url 'cliente'%}">Clientes</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="{% url 'Listc' %}"> Equipos </a></li>
+                                                <li><a class="dropdown-item" href="{% url 'editarPerfil' %}">Editar</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                                            </ul>
+                                    </li>  
+                                    </ul>          
+                                     {% else %}
+                                            <li><a class="navbar-brand" href="{% url 'Register' %}">Register</a></li>
+                                            <li><a class="navbar-brand" href="{% url 'Login' %}">Login</a></li>
+                             {% endif %}
+                             
+                </div>
             </div>
-          </nav>
-          
+        </nav>
+        <center>
+            {%if messages%}
+                {%for message in messages %}  
+                    <div class="notification {{message.tags}}">
+                        {{message}}
+                    </div>
+
+                {%endfor%} 
+            {%endif%}   
+        </center>
           <!-- Masthead-->
         
         {% block contenidoQueCambia %}
 
         {% endblock %}  
         <!-- Footer-->
-        <footer class="footer bg-light">
-            <div class="container">
+        <footer class="footer">
+            <div class="container ">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item"><a href="{% url 'about' %}">About</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
+                            <li class="list-inline-item"><a href="mailto:desarrollo@cellcoder.com">Contact</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                            {% comment %} <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li> {% endcomment %}
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2022. All Rights Reserved.</p>
                     </div>

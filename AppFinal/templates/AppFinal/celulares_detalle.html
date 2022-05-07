@@ -1,0 +1,20 @@
+{% extends "AppFinal/padre.html" %}
+        {% load static %}
+{% block contenidoQueCambia %}
+<center> 
+    <img class="container position-relative " src="{%static 'AppFinal/assets/img/este.jpg'%}" alt="...">
+</center>  
+<div class="container position-relative">
+    <div class="row justify-content-center">
+        <div class="col-xl-6">
+            <p> Marca del Equipo: <i> {{celular.marca}} </i></p>
+            <p> Modelo: <i> {{celular.modelo}} </i></p>
+            <p> Precio: <i> {{celular.precio}} </i></p>
+            <p>
+                                <a href="{%url 'Listc' %}"> Regresar </a>
+            </p>
+        </div>
+    </div>
+</div>                         
+
+{% endblock %}
